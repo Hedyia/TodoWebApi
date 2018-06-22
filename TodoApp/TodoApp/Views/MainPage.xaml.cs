@@ -11,7 +11,9 @@ namespace TodoApp
 	{
 		public MainPage()
 		{
+            
 			InitializeComponent();
 		}
-	}
+
+    }
 }
