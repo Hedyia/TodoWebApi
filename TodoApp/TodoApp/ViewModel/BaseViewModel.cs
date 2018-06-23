@@ -3,7 +3,8 @@
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
-    public class BaseViewModel
+
+    public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -15,10 +16,11 @@
         protected void SetValue<T>(ref T backingField, T value, [CallerMemberName] string propertyName = null)
         {
             if (EqualityComparer<T>.Default.Equals(backingField, value))
+            {
                 return;
+            }
 
             backingField = value;
-
             OnPropertyChanged(propertyName);
         }
     }
